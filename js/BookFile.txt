@@ -1,0 +1,220 @@
+Q: Create a class book having attribute id ,name ,price ,quantity , author.The class should have a constuctor for initializing product attributes.
+   Create a menu for adding new book, updating book details ,deleting a book and displaying book details. Create file and save and retrive the data 
+   of the above file.
+
+
+
+import pickle
+l=[]
+class Book:
+    def __init__(self,bid,bname,bprice,bauthor,bqty):
+        self.bid=bid
+        self.bname = bname
+        self.bprice = bprice
+        self.bauthor=bauthor
+        self.bqty = bqty
+        pass
+    pass
+
+try:
+    f=open('file4.txt','rb')
+    l=pickle.load(f)
+    f.close()
+    
+except EOFError:
+  print("Reading file empty:\n")
+
+finally:
+    def AddBook():
+        global l
+        id=int(input(print("Enter the book id:")))
+        name=input("Enter the book name:")
+        pr = int(input(print("Enter the book price:")))
+        ath = input("Enter the book author name:")
+        qty=int(input(print("Enter the qty of book:")))
+        obj=Book(id,name,pr,ath,qty) #obj is a object of class Book
+        l.append(obj) 
+        pass
+
+    def Update():
+        global l
+        ch=int(input("\n 1.Name\n 2.price \n 3.Author \n 4.Quantity\n Enter your choice:"))
+        idd=int(input("Enter the book id to updated"))
+        if(ch==1):
+           name=input("Enter the new name")
+           for i in l:
+              if(i.bid==idd):
+                i.bname=name
+        elif(ch==2):
+            price = int(input("Enter the new book price"))
+            for i in l:
+               if(i.bid==idd):
+                  i.bprice=price
+        elif (ch == 3):
+            author = input("Enter the new author name")
+            for i in l:
+               if (i.bid==idd):
+                 i.bauthor = author
+        elif (ch == 4):
+            qty = int(input("Enter the new book price"))
+            for i in l:
+                if (i.bid==idd):
+                    i.bqty = qty
+        else:
+            print("\nEnter the correct choice:")
+            Update()
+        pass
+
+
+    def deleteBook():
+         global l
+         idd=int(input("Enter the book id you want to delete:"))
+         for i in l:
+            if(i.bid==idd):
+               l.remove(i)
+         pass
+
+    def displayBook():
+         global l
+         for i in l:
+            print("Book id is:"+str(i.bid)+"\t",end="")
+            print("Book name is:" + i.bname + "\t", end="")
+            print("Book price is:" + str(i.bprice) + "\t", end="")
+            print("Book author is:" + i.bauthor + "\t", end="")
+            print("Book qty is:" + str(i.bqty) + "\t", end="")
+    pass
+
+    while True:
+          print('\n 1.Add book \n 2.Update name \n 3.DeleteBook \n 4.DisplayBook\n 5.exit')
+          ch=int(input(print('\n Enter your choice:')))
+          if(ch==1):
+              AddBook()
+          elif(ch==2):
+               Update()
+          elif(ch==3):
+              deleteBook()
+          elif(ch==4):
+              displayBook()
+          elif(ch==5):
+                exit(0)
+          else:
+             print("\nEnter the correct choice:")
+          pass
+    f=open('file4.txt','wb')
+    pickle.dump(l,f)
+    f.close()
+
+OUTPUT:
+
+Reading file empty:
+
+
+ 1.Add book 
+ 2.Update name 
+ 3.DeleteBook 
+ 4.DisplayBook
+ 5.exit
+
+ Enter your choice:
+None1
+Enter the book id:
+None1
+Enter the book name:ews
+Enter the book price:
+None123
+Enter the book author name:ds
+Enter the qty of book:
+None32
+
+ 1.Add book 
+ 2.Update name 
+ 3.DeleteBook 
+ 4.DisplayBook
+ 5.exit
+
+ Enter your choice:
+None4
+Book id is:1	Book name is:ews	Book price is:123	Book author is:ds	Book qty is:32	
+ 1.Add book 
+ 2.Update name 
+ 3.DeleteBook 
+ 4.DisplayBook
+ 5.exit
+
+ Enter your choice:
+None1
+Enter the book id:
+None12
+Enter the book name:ds
+Enter the book price:
+None1234
+Enter the book author name:es
+Enter the qty of book:
+None2
+
+ 1.Add book 
+ 2.Update name 
+ 3.DeleteBook 
+ 4.DisplayBook
+ 5.exit
+
+ Enter your choice:
+None4
+Book id is:1	Book name is:ews	Book price is:123	Book author is:ds	Book qty is:32	Book id is:12	Book name is:ds	Book price is:1234	Book author is:es	Book qty is:2	
+ 1.Add book 
+ 2.Update name 
+ 3.DeleteBook 
+ 4.DisplayBook
+ 5.exit
+
+ Enter your choice:
+None2
+
+ 1.Name
+ 2.price 
+ 3.Author 
+ 4.Quantity
+ Enter your choice:1
+Enter the book id to updated1
+Enter the new nameewq
+
+ 1.Add book 
+ 2.Update name 
+ 3.DeleteBook 
+ 4.DisplayBook
+ 5.exit
+
+ Enter your choice:
+None4
+Book id is:1	Book name is:ewq	Book price is:123	Book author is:ds	Book qty is:32	Book id is:12	Book name is:ds	Book price is:1234	Book author is:es	Book qty is:2	
+ 1.Add book 
+ 2.Update name 
+ 3.DeleteBook 
+ 4.DisplayBook
+ 5.exit
+
+ Enter your choice:
+None3
+Enter the book id you want to delete:1
+
+ 1.Add book 
+ 2.Update name 
+ 3.DeleteBook 
+ 4.DisplayBook
+ 5.exit
+
+ Enter your choice:
+None4
+Book id is:12	Book name is:ds	Book price is:1234	Book author is:es	Book qty is:2	
+ 1.Add book 
+ 2.Update name 
+ 3.DeleteBook 
+ 4.DisplayBook
+ 5.exit
+
+ Enter your choice:
+None5
+
+Process finished with exit code 0
+
+

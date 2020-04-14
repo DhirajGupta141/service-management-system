@@ -1,0 +1,192 @@
+#Q Wap to accept number and print a list containing the digits of given numbers in words
+
+num=int(input(print("Enter the number:")))
+nums=str(num)#converting the number in string
+n=len(nums)#finding length of string
+l=[]
+for i in range(0,n): #Remember that i here is index not value
+
+    if(nums[i]=='0'):
+        l.append('Zero')
+    elif(nums[i]=='1'):
+        l.append('One')
+
+    elif(nums[i] == '2'):
+        l.append('Two')
+
+    elif (nums[i] == '3'):
+        l.append('Three')
+
+    elif (nums[i]== '4'):
+        l.append('Four')
+
+    elif (nums[i] == '5'):
+        l.append('five')
+    elif (nums[i] == '6'):
+        l.append('six')
+
+    elif (nums[i]== '7'):
+        l.append('seven')
+
+    elif (nums[i] == '8'):
+        l.append('Eight')
+
+    elif(nums[i]== '9'):
+        l.append('Nine')
+
+print(l)
+
+
+OUTPUT:
+
+Enter the number:
+12303
+['One', 'Two', 'Three', 'Zero', 'Three']
+
+Process finished with exit code 0
+
+
+
+#program2
+#WAP to accept a string from user and return a list of unique character from the string
+
+unique=[]
+name=str(input(print("Enter a string:")))
+n=len(name)
+
+for i in range(0,n):
+    if name[i] not in unique:
+        unique.append(name[i])
+print(unique)
+
+
+OUTPUT:
+C:\python3.8\python.exe C:/Users/Neeraj/PycharmProject/firstfrog/digits.py
+Enter a string:
+Noneaman
+['a', 'm', 'n']
+
+Process finished with exit code 0
+
+# #program3
+# #Wap to perform the following
+# #a:Take the input from the user if the input is character ignore it
+# #b:If the input is 'stop' then stop taking input from user and print the output
+# #c:If the input is number then add it to the list such that the list is always in the ascending sorted order
+# #(no use of build in function)
+#
+l=[]
+print("Enter something:")
+while True:
+    a=input()
+    if(a.lower()=='stop'):
+        break
+    elif(a.lower()>='a'and a.lower()<='z'):
+        print("Character entered:")
+        pass
+    else:
+        l.append(int(a))
+    for i in range(len(l)):
+        for j in range(len(l)-1):
+            if(l[j]>l[j+1]):
+                temp=l[j]
+                l[j]=l[j+1]
+                l[j+1]=temp
+    pass
+print(l)
+
+OUTPUT:
+C:\python3.8\python.exe C:/Users/Neeraj/PycharmProject/firstfrog/digits.py
+Enter something:
+a
+Character entered:
+1
+s
+Character entered:
+12
+32
+12
+s
+Character entered:
+stop
+[1, 12, 12, 32]
+
+Process finished with exit code 0
+
+
+
+
+Q: Wap to accept two list l1 and l2 from the user and print the following .
+(a) A intersectionlist which contain elements which are available in both l1 and l2
+(b) Unique MergeList which will contain merging of elements from both the list and remove duplicate
+CODE:
+l1=[]
+l2=[]
+n=int(input(print("Enter the length of list 1:")))
+print("Enter the elements of list 1 \n")
+for i in range(1,n+1):
+    l1.append(int(input(print(f"\nEnter value {i}:"))))
+
+print(l1)
+
+m=int(input(print("Enter the length of list 2:")))
+print("Enter the elements of list 2 \n")
+for i in range(1,m+1):
+    l2.append(int(input(print(f"\n Enter value {i}:"))))
+print(l2)
+
+#case1
+intersect=[]
+
+for i in l1:
+    if i in l2:
+        intersect.append(i)
+print("Intersect elements are:")
+print(intersect)
+#case2
+unique=[]
+for i in l2:
+        l1.append(i)#appending list2 in list 1
+print("Elements of the the list are:")
+print(l1)
+
+print("Unique Merge list  elements are:")
+for i in l1:
+    if i not in unique:
+        unique.append(i)
+print(unique)
+
+OUTPUT:
+
+Enter the length of list 1:
+None3
+Enter the elements of list 1 
+
+
+Enter value 1:
+None1
+
+Enter value 2:
+None2
+
+Enter value 3:
+None12
+[1, 2, 12]
+Enter the length of list 2:
+None2
+Enter the elements of list 2 
+
+ Enter value 1:
+None1
+
+ Enter value 2:
+None2
+[1, 2]
+Intersect elements are:
+[1, 2]
+Elements of the the list are:
+[1, 2, 12, 1, 2]
+Unique Merge list  elements are:
+[1, 2, 12]
+
+Process finished with exit code 0
